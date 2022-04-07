@@ -27,4 +27,12 @@ public class ProfessorController {
         return mv;
     }
 
+
+
+    @GetMapping("/professor/new")
+    public String nnew() {
+        return "professores/new";
+
+    }
+
 }
