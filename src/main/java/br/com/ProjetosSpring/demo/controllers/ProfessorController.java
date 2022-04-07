@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import br.com.ProjetosSpring.demo.dto.ProfessorDTO;
 import br.com.ProjetosSpring.demo.models.Professor;
+import br.com.ProjetosSpring.demo.models.StatusProfessor;
 import br.com.ProjetosSpring.demo.repositories.ProfessorRepository;
 
 @Controller
@@ -30,9 +32,21 @@ public class ProfessorController {
 
 
     @GetMapping("/professor/new")
-    public String nnew() {
-        return "professores/new";
+    public ModelAndView nnew() {
 
+        ModelAndView mv = new ModelAndView("professor/new");
+        mv.addObject("statusProfessor", StatusProfessor.values());
+
+        return mv;
+
+    } 
+
+    @PostMapping("/professores")
+    public String create(ProfessorDTO professorDTO) {
+        System.out.println();
+        System.out.println(professorDTO.getStatus());
+        System.out.println();
+
+        return "redirect:/professores";
     }
-
 }
