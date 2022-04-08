@@ -1,8 +1,14 @@
 package br.com.ProjetosSpring.demo.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import br.com.ProjetosSpring.demo.models.StatusProfessor;
 
 public class ProfessorDTO {
+
+    @NotBlank
+    @NotNull
     private String nome;
     private StatusProfessor statusProfessor;
 

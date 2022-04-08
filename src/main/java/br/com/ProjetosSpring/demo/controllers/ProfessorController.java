@@ -43,9 +43,9 @@ public class ProfessorController {
 
     @PostMapping("/professores")
     public String create(ProfessorDTO professorDTO) {
-        System.out.println();
-        System.out.println(professorDTO.getStatus());
-        System.out.println();
+        Professor professor = requisicao.toProfessor();
+        this.professorRepository.save(professor);
+        
 
         return "redirect:/professores";
     }
